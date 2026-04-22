@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leave Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Leave Management System</h2>
+
+<div class="container">
+
+    <!-- Apply Leave -->
+    <h3>Apply Leave</h3>
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="type" placeholder="Leave Type">
+    <input type="date" id="start">
+    <input type="date" id="end">
+    <textarea id="reason" placeholder="Reason"></textarea>
+    <button onclick="applyLeave()">Apply Leave</button>
+
+    <!-- Approve Leave -->
+    <h3>HR Approve / Reject</h3>
+    <input type="number" id="leaveId" placeholder="Leave ID">
+    <select id="status">
+        <option value="APPROVED">Approve</option>
+        <option value="REJECTED">Reject</option>
+    </select>
+    <button onclick="updateLeave()">Update</button>
+
+    <!-- View Leaves -->
+    <h3>All Leaves</h3>
+    <button onclick="getLeaves()">Load Leaves</button>
+    <ul id="leaveList"></ul>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,40 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Leave Management</title>
+    <title>Leave App</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h2>Leave Management System</h2>
+<div class="sidebar">
+    <h2>Leave App</h2>
+    <ul>
+        <li onclick="showSection('login')">Login</li>
+        <li onclick="showSection('signup')">Signup</li>
+        <li onclick="showSection('register')">Employee Details</li>
+        <li onclick="showSection('dashboard')">Dashboard</li>
+        <li onclick="showSection('apply')">Apply Leave</li>
+        <li onclick="showSection('manage')">Manage Leave</li>
+    </ul>
+</div>
 
-<div class="container">
+<div class="main">
 
-    <!-- Apply Leave -->
-    <h3>Apply Leave</h3>
-    <input type="email" id="email" placeholder="Email">
-    <input type="text" id="type" placeholder="Leave Type">
+<div id="msg"></div>
+
+<!-- LOGIN -->
+<div id="login" class="section">
+    <h2>Login</h2>
+    <input id="loginEmail" placeholder="Email">
+    <input id="loginPassword" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- SIGNUP -->
+<div id="signup" class="section" style="display:none;">
+    <h2>Signup</h2>
+    <input id="name" placeholder="Name">
+    <input id="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="signup()">Signup</button>
+</div>
+
+<!-- REGISTER -->
+<div id="register" class="section" style="display:none;">
+    <h2>Employee Details</h2>
+    <input id="work" placeholder="Work Type">
+    <input id="aadhar" placeholder="Aadhar">
+    <input id="pan" placeholder="PAN">
+    <input id="bank" placeholder="Bank Account">
+    <input id="ifsc" placeholder="IFSC">
+    <button onclick="registerEmployee()">Save</button>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="section" style="display:none;">
+    <h2>Dashboard</h2>
+    <div class="cards">
+        <div class="card">Total<br><span id="total">0</span></div>
+        <div class="card">Pending<br><span id="pending">0</span></div>
+        <div class="card">Approved<br><span id="approved">0</span></div>
+    </div>
+</div>
+
+<!-- APPLY -->
+<div id="apply" class="section" style="display:none;">
+    <h2>Apply Leave</h2>
+    <input id="type" placeholder="Leave Type">
     <input type="date" id="start">
     <input type="date" id="end">
     <textarea id="reason" placeholder="Reason"></textarea>
-    <button onclick="applyLeave()">Apply Leave</button>
+    <button onclick="applyLeave()">Apply</button>
+</div>
 
-    <!-- Approve Leave -->
-    <h3>HR Approve / Reject</h3>
-    <input type="number" id="leaveId" placeholder="Leave ID">
-    <select id="status">
-        <option value="APPROVED">Approve</option>
-        <option value="REJECTED">Reject</option>
-    </select>
-    <button onclick="updateLeave()">Update</button>
-
-    <!-- View Leaves -->
-    <h3>All Leaves</h3>
-    <button onclick="getLeaves()">Load Leaves</button>
-    <ul id="leaveList"></ul>
+<!-- MANAGE -->
+<div id="manage" class="section" style="display:none;">
+    <h2>Manage Leave</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="leaveTable"></tbody>
+    </table>
+</div>
 
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
